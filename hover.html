@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>移入移出动画效果</title>
+  <style>
+    span{
+      cursor: pointer;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      display: inline-block;
+      color: #333;
+      background: #ccc;
+      min-width: 80px;
+      padding: 0 10px;
+      margin: 10px;
+    }
+    span {
+      position: relative;
+      transition: all .3s;
+      z-index: 1;
+    }
+
+    .ech-fade::before, .ech-fade-t::before, .ech-fade-c-out::before, .ech-fade-c-out::after {
+      position: absolute;
+      transition: all .3s;
+      content: "";
+      display: block;
+      background: #09f;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .ech-fade::before {
+      top: 0;
+      left: 0;
+      transform: scaleX(1);
+      opacity: 0;
+    }
+    .ech-fade:hover::before {
+      opacity: 1;
+    }
+
+    .ech-fade-t::before {
+      /* bottom: 0; */
+      left: 0;
+      transform-origin: 50% 0;
+      transform: scaleY(0);
+      transition-timing-function: cubic-bezier(0.52, 1.7, 0.5, 0.4);
+    }
+    .ech-fade-t:hover:before {
+      transform: scaleY(1);
+    }
+
+    .ech-fade-c-out::before {
+      left: 0;
+      transform-origin: 50% 0;
+      transform: scaleY(0);
+    }
+    .ech-fade-c-out::after {
+      left: 0;
+      top: 0;
+      transform-origin: 50% 100%;
+      transform: scaleY(0);
+    }
+    .ech-fade-c-out:hover::before, .ech-fade-c-out:hover::after {
+      transform: scaleY(.5);
+    }
+
+  </style>
+</head>
+<body>
+  <span class="ech-fade">fade</span>
+  <span class="ech-fade-t">fade-t</span>
+  <!-- <span class="ech-fade-b">fade-b</span>
+  <span class="ech-fade-l">fade-l</span>
+  <span class="ech-fade-r">fade-r</span> -->
+  <!-- <span class="ech-bounce-t">bounce-t</span>
+  <span class="ech-bounce-b">bounce-b</span>
+  <span class="ech-bounce-l">bounce-l</span>
+  <span class="ech-bounce-r">bounce-r</span> -->
+  <span class="ech-fade-c-out">fade-c-out</span>
+  <!-- <span class="ech-fade-c-in">fade-c-in</span>
+  <span class="ech-fade-m-out">fade-m-out</span>
+  <span class="ech-fade-m-in">fade-m-in</span> -->
+    
+</body>
+</html>
