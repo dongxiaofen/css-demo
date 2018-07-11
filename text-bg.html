@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>文字背景</title>
+  <style>
+    .clip {
+      width: 400px;
+      height: 300px;
+      line-height: 300px;
+      text-align: center;
+      font-size: 180px;
+      font-weight: bold;
+      background: url('./img/pic.png') no-repeat center center;
+      background-size: cover;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .container {
+      position: relative;
+    }
+    .bg {
+      width: 400px;
+      height: 300px;
+      background: url('./img/pic.png') no-repeat center center;
+      background-size: cover;
+    }
+    .clip2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 99;
+      background-color: #fff;
+      width: 400px;
+      height: 300px;
+      line-height: 300px;
+      text-align: center;
+      font-size: 180px;
+      font-weight: bold;
+      mix-blend-mode: lighten;
+    }
+  </style>
+</head>
+<body>
+  <div>方法一： background-clip: text;</div>
+  <div class="clip">clip</div>
+  <div>方法二： mix-blend-mode: lighten;</div>
+  <div class="container">
+    <div class="bg"></div>
+    <div class="clip2">clip</div>
+  </div>
+</body>
+</html>
